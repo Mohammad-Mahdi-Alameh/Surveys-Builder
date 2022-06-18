@@ -48,5 +48,10 @@ class UserController extends Controller
        ], Response::HTTP_OK);
    }
 
+   public function getSurveys(){
+        
+    $surveys=Survey::all();
+    return $surveys;
+}
 
 }
