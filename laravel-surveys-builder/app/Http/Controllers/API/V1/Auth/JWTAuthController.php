@@ -1,11 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Api\V1\Auth;
-
 use Illuminate\Http\Request;
-
 use App\Models\User;
-
 use App\Http\Controllers\Controller;
 use JWTAuth;
 use Validator;
