@@ -1,4 +1,4 @@
-import Logo from "../assets/logo.png";
+import Logo from "../assets/Logo.png";
 function Nav(){
     return (
         <nav className="top-nav container">
