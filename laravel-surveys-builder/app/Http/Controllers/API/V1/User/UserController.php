@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Validator;
 use App\Models\Answer;
 use App\Models\Survey;
+use App\Models\Question;
 use Symfony\Component\HttpFoundation\Response;
 
 
@@ -57,7 +58,7 @@ class UserController extends Controller
     public function getQuestions($survey_name){
    
         
-        $record = Survey::where("name","=",$request->survey_name)->get();
+        $record = Survey::where("name","=",$survey_name)->get();
         $survey_id = json_decode($record,true)[0]["id"];
         $questions = Question :: where("survey_id","=",$survey_id) ->get();
         return $questions;
