@@ -12,6 +12,7 @@ use Validator;
 use Auth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Hash;
  
 
 class JWTAuthController extends Controller
@@ -79,6 +80,7 @@ class JWTAuthController extends Controller
 
     public function login(Request $request)
     {
+        $request->password = Hash::make($request ->password);
         $input = $request->only('username', 'password');
         $jwt_token = null;
   
