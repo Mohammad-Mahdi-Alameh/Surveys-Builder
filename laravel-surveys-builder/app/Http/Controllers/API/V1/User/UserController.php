@@ -52,6 +52,16 @@ class UserController extends Controller
         
     $surveys=Survey::all();
     return $surveys;
-}
+    }
+
+    public function getQuestions($survey_name){
+   
+        
+        $record = Survey::where("name","=",$request->survey_name)->get();
+        $survey_id = json_decode($record,true)[0]["id"];
+        $questions = Question :: where("survey_id","=",$survey_id) ->get();
+        return $questions;
+
+    }
 
 }
