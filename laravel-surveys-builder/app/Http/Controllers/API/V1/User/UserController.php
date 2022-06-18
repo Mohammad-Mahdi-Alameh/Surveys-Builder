@@ -53,4 +53,30 @@ class UserController extends Controller
        ], Response::HTTP_OK);
    }
 
+   public function createSurvey(Request $request)
+   {
+
+       
+       $validator = Validator::make($request->all(), [
+           'name' => 'required|string|min:2|max:100|unique:surveys',            
+       ]);
+
+       if($validator->fails()) {
+           return response()->json(["message" => "Survey exists already ! Change the name please !"]);
+       }
+
+    
+       $survey = new Survey;
+
+       $survey->name = $request->name;
+       $survey->number_of_questions = 0;
+       
+       $survey->save();
+
+       return response()->json([
+           'message' => 'Survey created successfully',
+           'survey' => $survey
+       ], Response::HTTP_OK);
+   }
+
 }
