@@ -4,7 +4,8 @@ import React, { useState, useEffect } from "react";
 function App() {
   const [surveys, setSurveys] = useState([]);
   const [questions, setQuestions] = useState([]);
-
+  const [answers, setAnswers] = useState([]);
+  
   //Getting all surveys from db
   const fetchSurveys = async () => {
     try {
@@ -70,6 +71,18 @@ function App() {
     });
     const data = await res.json();
     setQuestions([...questions, data]);
+  };
+  //submitting an answer
+   const addAnswer = async (answer) => {
+    const res = await fetch("http://127.0.0.1:8000/api/v1/admin/submit_answer", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(answer),
+    });
+    const data = await res.json();
+    setAnswers([...answers, data]);
   };
   return (
 
