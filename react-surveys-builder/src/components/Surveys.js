@@ -1,7 +1,7 @@
 import React from "react";
 import Survey from "./Survey";
 
-const Survey = ({ surveys }) => {
+const Surveys = ({ surveys }) => {
   return (
     <>
       {surveys.map((survey) => (
