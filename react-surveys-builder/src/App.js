@@ -58,7 +58,19 @@ function App() {
     const data = await res.json();
     setSurveys([...surveys, data]);
   };
- 
+  //adding a question
+   const addQuestion = async (question) => {
+    const res = await fetch("http://127.0.0.1:8000/api/v1/admin/add_question", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        "Authorization": "Bearer "+localStorage.getItem("token"),
+      },
+      body: JSON.stringify(question),
+    });
+    const data = await res.json();
+    setQuestions([...questions, data]);
+  };
   return (
 
     <>
