@@ -17,7 +17,7 @@ function App() {
       console.log(err);
     }
   };
-
+// Initialize all surveys into state from backend at component load
   useEffect(() => {
     const getSurveys = async () => {
       const serverSurveys = await fetchSurveys();
@@ -27,24 +27,23 @@ function App() {
   }, []);
   
   //getting all questions of certain survey from db
-  const fetchQuestions = async () => {
-    try {
-      const res = await fetch("http://127.0.0.1:8000/api/v1/user/get_questions/test");
-      const data = await res.json();
-      console.log(data);
-      // return data;
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  useEffect(() => {
-    const getQuestions = async () => {
-      const serverQuestions = await fetchQuestions();
-      setQuestions(serverQuestions);
-    };
-    getQuestions();
-  }, []);
+  // const fetchQuestions = async () => {
+  //   try {
+  //     const res = await fetch("http://127.0.0.1:8000/api/v1/user/get_questions/test");
+  //     const data = await res.json();
+  //     console.log(data);
+  //     // return data;
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
+  // useEffect(() => {
+  //   const getQuestions = async () => {
+  //     const serverQuestions = await fetchQuestions();
+  //     setQuestions(serverQuestions);
+  //   };
+  //   getQuestions();
+  // }, []);
 
   //adding a survey
    const addSurvey = async (survey) => {
@@ -74,7 +73,7 @@ function App() {
   };
   //submitting an answer
    const addAnswer = async (answer) => {
-    const res = await fetch("http://127.0.0.1:8000/api/v1/admin/submit_answer", {
+    const res = await fetch("http://127.0.0.1:8000/api/v1/admin/submit_answers", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -86,9 +85,15 @@ function App() {
   };
   return (
 
-    <>
-
-    </>
+    <div>
+      {
+        surveys.length > 0 ? (
+          <Surveys surveys={surveys} />
+        ) : (
+          "No surveys to show!"
+            )
+      }
+    </div>
   );
 }
 
