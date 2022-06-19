@@ -3,10 +3,14 @@ import './App.css';
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Surveys from "./components/Surveys";
+import Nav from "./components/Nav";
+
 function App() {
   const [surveys, setSurveys] = useState([]);
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState([]);
+  const [showCreateSurvey, setShowCreateSurvey] = useState(false);
+  // const [showLogin, setShowLogin] = useState(false);
   
   //Getting all surveys from db
   const fetchSurveys = async () => {
@@ -98,16 +102,30 @@ function App() {
     setAnswers([...answers, data]);
   };
   return (
-
+  <> 
+    <Nav
+          title = {"Forms"}
+          onCreateSurvey={() => {
+            setShowCreateSurvey(!showCreateSurvey);
+          }}
+          // onLogin={() => {
+          //   setShowLogin(!showLogin);
+          // }}
+          // checkToken={checkToken}
+          showCreateSurvey={showCreateSurvey}
+          // showLogin={showLogin}
+        />
     <div>
       {
         surveys.length > 0 ? (
           <Surveys surveys={surveys} getQuestions={fetchQuestions} />
-        ) : (
-          "No surveys to show!"
+          ) : (
+            "No surveys to show!"
             )
       }
     </div>
+  </>
+
   );
 }
 
