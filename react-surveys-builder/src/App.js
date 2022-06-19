@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Surveys from "./components/Surveys";
 function App() {
   const [surveys, setSurveys] = useState([]);
@@ -18,6 +19,19 @@ function App() {
       console.log(err);
     }
   };
+   //Checking if the token exists
+   const checkToken = async () => {
+    try {
+      let token = localStorage.getItem("token");
+      if ( token )
+          return true;
+      else
+          return false; 
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
 // Initialize all surveys into state from backend at component load
   useEffect(() => {
     const getSurveys = async () => {
@@ -28,16 +42,15 @@ function App() {
   }, []);
   
   //getting all questions of certain survey from db
-  // const fetchQuestions = async () => {
-  //   try {
-  //     const res = await fetch("http://127.0.0.1:8000/api/v1/user/get_questions/test");
-  //     const data = await res.json();
-  //     console.log(data);
-  //     // return data;
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
+  const fetchQuestions = async (survey_name) => {
+    try {
+      const res = await fetch("http://127.0.0.1:8000/api/v1/user/get_questions/${survey_name}");
+      const data = await res.json();
+      return data;
+    } catch (err) {
+      console.log(err);
+    }
+  };
   // useEffect(() => {
   //   const getQuestions = async () => {
   //     const serverQuestions = await fetchQuestions();
@@ -89,7 +102,7 @@ function App() {
     <div>
       {
         surveys.length > 0 ? (
-          <Surveys surveys={surveys} />
+          <Surveys surveys={surveys} getQuestions={fetchQuestions} />
         ) : (
           "No surveys to show!"
             )
