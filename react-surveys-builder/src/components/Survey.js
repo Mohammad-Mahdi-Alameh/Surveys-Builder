@@ -5,7 +5,7 @@ const Survey = ({ survey , getQuestions }) => {
     <div
     className={"survey"}
     onClick={() => {
-        getQuestions(survey.name);
+      getQuestions(survey.name);
     }}
     >
       <h3>

@@ -9,8 +9,10 @@ import CreateSurvey from "./components/CreateSurvey";
 function App() {
   const [surveys, setSurveys] = useState([]);
   const [questions, setQuestions] = useState([]);
+  const [surveyQuestions, setSurveyQuestions] = useState([]);
   const [answers, setAnswers] = useState([]);
   const [showCreateSurvey, setShowCreateSurvey] = useState(false);
+
   const [showLogout, setShowLogout] = useState(false);
   
   //Getting all surveys from db
@@ -44,6 +46,7 @@ function App() {
       setSurveys(serverSurveys);
     };
     getSurveys();
+    
   }, []);
   
   //getting all questions of certain survey from db
@@ -51,6 +54,8 @@ function App() {
     try {
       const res = await fetch("http://127.0.0.1:8000/api/v1/user/get_questions/"+survey_name);
       const data = await res.json();
+      console.log(data);
+      setSurveyQuestions([...surveyQuestions, data])
       return data;
     } catch (err) {
       console.log(err);
