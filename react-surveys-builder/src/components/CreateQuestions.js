@@ -9,5 +9,6 @@ const CreateQuestions = ({ }) => {
       return (
        <div>Customize your questions for the  {survey_name} survey </div>
       );
+      
     };
 export default CreateQuestions;
