@@ -15,9 +15,10 @@ body {
   margin: 30px auto;
   overflow: auto;
   min-height: 300px;
-  border: 1px solid steelblue;
+  border: 1px solid rgb(171, 113, 237);
   padding: 30px;
   border-radius: 5px;
+  
 }
 .icon{
   display: flex;
@@ -54,12 +55,18 @@ body {
 
 .btn-block {
   display: block;
-  width: 100%;
+  margin:auto;
+  width: 40%;
 }
 
 .survey {
-  background: #f4f4f4;
-  margin: 5px;
+  background: #d9d8d8;
+  width: 60%;
+  text-align: center;
+  transition: transform .2s;
+  margin: auto;
+  margin-top: 15px;   
+  margin-bottom: 15px;   
   padding: 10px 20px;
   cursor: pointer;
 }
@@ -81,12 +88,46 @@ form {
 
 label {
   display: block;
+  margin-top: 3vh;
+  margin-left: 20vw;
+  padding: 3px 7px;
 }
 
 input , select {
   width: 50%;
   height: 40px;
-  margin: 5px;
+  margin-left: 20vw;
   padding: 3px 7px;
   font-size: 17px;
+}
+
+.main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3%;
+  margin-left: 60%;
+  height: 80vh;  
+  color: rgb(0, 0, 0);
+  font-family: 'Poppins', sans-serif;
+  font-size: xx-large;
+}
+.flex-item{
+  flex:25%;
+  padding:10px;
+  margin-bottom: 20px;
+  
+  
+  
+}
+.zoom {
+  padding: 50px;
+  transition: transform .2s; /* Animation */
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.survey:hover {
+  transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
