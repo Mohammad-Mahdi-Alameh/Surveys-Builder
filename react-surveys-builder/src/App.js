@@ -84,11 +84,10 @@ function App() {
 
   //adding a survey
    const addSurvey = async (survey) => {
-    const res = await fetch("http://127.0.0.1:8000/api/v1/admin/add_survey", {
+    const res = await fetch("http://127.0.0.1:8000/api/v1/admin/create_survey", {
       method: "POST",
       headers: {
-        "Content-type": "application/json",
-        "Authorization": "Bearer "+localStorage.getItem("token"),
+        "Authorization": "Bearer " + localStorage.getItem("token"),
       },
       body: survey,
     });
