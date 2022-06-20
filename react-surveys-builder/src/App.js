@@ -122,7 +122,7 @@ function App() {
   };
   return (
     <BrowserRouter> 
-      
+      <div className="container">
     <Nav
           // title = {"Forms"}
           onCreateSurvey={() => {
@@ -158,6 +158,7 @@ function App() {
           ></Route>
    
           </Routes>
+          </div>
   </BrowserRouter>
 
   );

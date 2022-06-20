@@ -3,6 +3,7 @@ import React, { useState } from "react";
 const Survey = ({ survey , getQuestions }) => {
   return (
     <div
+    className={"survey"}
     onClick={() => {
         getQuestions(survey.name);
     }}

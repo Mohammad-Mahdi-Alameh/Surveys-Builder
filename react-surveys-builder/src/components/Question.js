@@ -10,8 +10,7 @@ const Question = ({}) => {
        <TextForm label={"Question Title: "}/>
        <Dropdown label={"Type: "}/>
 
-       <Button text={"Add Answer Field"}/>
-       <Button text={"New Question"}/>
+       <Button text={"Create Question"} color={"green"}/>
         </>
       );
       

@@ -8,7 +8,7 @@ const location = useLocation();
 
   return (
     <header className="header">
-        <div>
+        <div className="icon">
             <img src={Logo} alt=""/>
             <h1>Surveys Builder</h1>
         </div>
