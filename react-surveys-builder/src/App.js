@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route,useNavigate} from "react-router-dom";
 import Surveys from "./components/Surveys";
 import Nav from "./components/Nav";
 import CreateSurvey from "./components/CreateSurvey";
@@ -120,7 +120,7 @@ function App() {
     setAnswers([...answers, data]);
   };
   return (
-  <> 
+  <BrowserRouter> 
     <Nav
           // title = {"Forms"}
           onCreateSurvey={() => {
@@ -133,17 +133,29 @@ function App() {
           showCreateSurvey={showCreateSurvey}
           // showLogin={showLogin}
         />
-           { <div>{showCreateSurvey && <CreateSurvey login={login} checkToken={checkToken} createSurvey={addSurvey}/>}</div> }
-    <div>
-      {
-        surveys.length > 0 ? (
-          <Surveys surveys={surveys} getQuestions={fetchQuestions} />
-          ) : (
-            ""
-            )
-      }
-    </div>
-  </>
+        <Routes>
+          <Route
+           path="/about"
+           element={
+            <div>{showCreateSurvey && <CreateSurvey login={login} checkToken={checkToken} createSurvey={addSurvey}/>}</div> }
+
+          ></Route>
+          <Route
+           path="/surveys_page"
+           element={
+            <div> {
+        
+              surveys.length > 0 ? (
+                <Surveys surveys={surveys} getQuestions={fetchQuestions} />
+                ) : (
+                  ""
+                  )
+                }</div> }
+
+          ></Route>
+   
+          </Routes>
+  </BrowserRouter>
 
   );
 };
