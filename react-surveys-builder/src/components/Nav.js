@@ -5,6 +5,7 @@ import Button from "./Button";
 
 const Nav = ({ onCreateSurvey, showCreateSurvey, title }) => {
 //   const location = useLocation();
+
   return (
     <header className="header">
         <div>
