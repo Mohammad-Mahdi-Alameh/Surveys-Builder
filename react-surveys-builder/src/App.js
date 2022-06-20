@@ -5,6 +5,7 @@ import Surveys from "./components/Surveys";
 import Nav from "./components/Nav";
 import CreateQuestions from "./components/CreateQuestions";
 import CreateSurvey from "./components/CreateSurvey";
+import Questions from "./components/Questions";
 
 function App() {
   const [surveys, setSurveys] = useState([]);
@@ -172,7 +173,14 @@ function App() {
             <CreateQuestions /> }
 
           ></Route>
-   
+
+          <Route
+           path="/questions"
+           element={
+            <Questions questions={surveyQuestions}/> }
+
+          ></Route>
+
       </Routes>
     </div>
   </BrowserRouter>
