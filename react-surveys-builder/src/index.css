@@ -56,3 +56,17 @@ body {
   display: block;
   width: 100%;
 }
+
+.survey {
+  background: #f4f4f4;
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+
+.style h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
