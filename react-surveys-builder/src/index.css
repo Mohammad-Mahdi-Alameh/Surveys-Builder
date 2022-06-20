@@ -79,15 +79,18 @@ body {
 }
 
 form {
+  margin: auto;
   margin-bottom: 40px;
 }
 
 .form-control {
+  margin: auto;
   margin: 20px 0;
 }
 
 label {
   display: block;
+  font-weight: bold;
   margin-top: 3vh;
   margin-left: 20vw;
   padding: 3px 7px;

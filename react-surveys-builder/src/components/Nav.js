@@ -12,7 +12,8 @@ const location = useLocation();
             <img src={Logo} alt=""/>
             <h1>Surveys Builder</h1>
         </div>
-            
+        
+        <div className="icon">
         {location.pathname === "/" && (
         <Button
           color={showCreateSurvey ? "red" : "green"}
@@ -20,7 +21,14 @@ const location = useLocation();
           onClick={onCreateSurvey}
         />
        )}
-        {location.pathname === "/create_survey's_questions" && (
+        {location.pathname === "/" && (
+        <Button
+          color={"red" }
+          text={"Logout"}
+          onClick={logout}
+        />
+       )}</div>
+       {location.pathname === "/create_survey's_questions" && (
         <Button
           color={"red" }
           text={"Logout"}

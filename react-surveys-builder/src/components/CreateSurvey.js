@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const CreateSurvey = ({ login , checkToken , createSurvey }) => {
+const CreateSurvey = ({ login , checkToken , createSurvey ,setShowCreateSurvey ,showCreateSurvey }) => {
   let token = checkToken();
   const navigate = useNavigate();
   // console.log(token);
@@ -23,7 +23,7 @@ const CreateSurvey = ({ login , checkToken , createSurvey }) => {
     login(login_data);
     setUsername("");
     setPassword("");
-
+    setShowCreateSurvey(!showCreateSurvey);
   };
   const onCreateSurvey = (e) => {
     e.preventDefault();

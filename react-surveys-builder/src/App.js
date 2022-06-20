@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route,useNavigate} from "react-router-dom";
@@ -12,7 +11,7 @@ function App() {
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState([]);
   const [showCreateSurvey, setShowCreateSurvey] = useState(false);
-  const [showLogin, setShowLogin] = useState(false);
+  const [showLogout, setShowLogout] = useState(false);
   
   //Getting all surveys from db
   const fetchSurveys = async () => {
@@ -65,7 +64,7 @@ function App() {
   //   getQuestions();
   // }, []);
 
-    //adding a survey
+    
     const login = async (username_pass) => {
       const res = await fetch("http://127.0.0.1:8000/api/v1/admin/login", {
         method: "POST",
@@ -76,13 +75,24 @@ function App() {
       console.log(data.success);
       if(data.success === true){
           localStorage.setItem("token",data.token);
-          alert("Hi Admin !");
+          // alert("Hi Admin !");
+          
       }else
           alert("Wrong username or Password !");
         
       }
 
 
+   const logout = async () => {
+    const res = await fetch("http://127.0.0.1:8000/api/v1/admin/logout", {
+      method: "POST",
+      headers: {
+        "Authorization": "Bearer " + localStorage.getItem("token"),
+      },
+    });
+    localStorage.removeItem("token");
+    window.location.reload(false);
+  };
   //adding a survey
    const addSurvey = async (survey) => {
     const res = await fetch("http://127.0.0.1:8000/api/v1/admin/create_survey", {
@@ -133,12 +143,13 @@ function App() {
             // }}
             // checkToken={checkToken}
             showCreateSurvey={showCreateSurvey}
+            logout={logout}
             // showLogin={showLogin}
             />
       
-<Routes>
+    <Routes>
            <Route path="/" element={<>
-            {showCreateSurvey && <CreateSurvey login={login} checkToken={checkToken} createSurvey={addSurvey}/>}
+            {showCreateSurvey && <CreateSurvey login={login} checkToken={checkToken} createSurvey={addSurvey} setShowCreateSurvey={setShowCreateSurvey} showCreateSurvey={showCreateSurvey} />}
 
      
          {
@@ -157,8 +168,8 @@ function App() {
 
           ></Route>
    
-          </Routes>
-          </div>
+      </Routes>
+    </div>
   </BrowserRouter>
 
   );
