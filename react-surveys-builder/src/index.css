@@ -70,3 +70,23 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+
+form {
+  margin-bottom: 40px;
+}
+
+.form-control {
+  margin: 20px 0;
+}
+
+label {
+  display: block;
+}
+
+input , select {
+  width: 50%;
+  height: 40px;
+  margin: 5px;
+  padding: 3px 7px;
+  font-size: 17px;
+}
