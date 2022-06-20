@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route,useNavigate} from "react-router-dom";
 import Surveys from "./components/Surveys";
 import Nav from "./components/Nav";
+import CreateQuestions from "./components/CreateQuestions";
 import CreateSurvey from "./components/CreateSurvey";
 
 function App() {
@@ -120,37 +121,39 @@ function App() {
     setAnswers([...answers, data]);
   };
   return (
-  <BrowserRouter> 
+    <BrowserRouter> 
+      
     <Nav
           // title = {"Forms"}
           onCreateSurvey={() => {
             setShowCreateSurvey(!showCreateSurvey);
           }}
           // onLogin={() => {
-          //   setShowLogin(!showLogin);
-          // }}
-          // checkToken={checkToken}
-          showCreateSurvey={showCreateSurvey}
-          // showLogin={showLogin}
-        />
-        <Routes>
-          <Route
-           path="/about"
-           element={
-            <div>{showCreateSurvey && <CreateSurvey login={login} checkToken={checkToken} createSurvey={addSurvey}/>}</div> }
+            //   setShowLogin(!showLogin);
+            // }}
+            // checkToken={checkToken}
+            showCreateSurvey={showCreateSurvey}
+            // showLogin={showLogin}
+            />
+      
+<Routes>
+           <Route path="/" element={<>
+            {showCreateSurvey && <CreateSurvey login={login} checkToken={checkToken} createSurvey={addSurvey}/>}
 
-          ></Route>
-          <Route
-           path="/surveys_page"
-           element={
-            <div> {
-        
-              surveys.length > 0 ? (
-                <Surveys surveys={surveys} getQuestions={fetchQuestions} />
+     
+         {
+           
+           surveys.length > 0 ? (
+             <Surveys surveys={surveys} getQuestions={fetchQuestions} />
                 ) : (
                   ""
                   )
-                }</div> }
+                }</>}></Route>
+
+          <Route
+           path="/create_survey's_questions"
+           element={
+            <CreateQuestions /> }
 
           ></Route>
    

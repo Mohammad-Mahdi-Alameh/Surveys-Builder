@@ -1,8 +1,10 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const CreateSurvey = ({ login , checkToken , createSurvey }) => {
   let token = checkToken();
+  const navigate = useNavigate();
   // console.log(token);
   // Initialize Input State
   const [name, setName] = useState("");
@@ -32,6 +34,7 @@ const CreateSurvey = ({ login , checkToken , createSurvey }) => {
     let survey_data= new FormData();
     survey_data.append("name",name);
     createSurvey(survey_data);
+    navigate("/create_survey's_questions?survey_name= " + name);
     setName("");};
 
   return (
