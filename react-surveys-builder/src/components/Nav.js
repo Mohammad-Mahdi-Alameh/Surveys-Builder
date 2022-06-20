@@ -10,7 +10,7 @@ const Nav = ({ onCreateSurvey, showCreateSurvey, title }) => {
     <header className="header">
         <div>
             <img src={Logo} alt=""/>
-            <h1>{title}</h1>
+            <h1>Surveys Builder</h1>
         </div>
             
         {/* {location.pathname === "/" && ( */}

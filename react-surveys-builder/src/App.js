@@ -25,7 +25,7 @@ function App() {
     }
   };
    //Checking if the token exists
-   const checkToken = async () => {
+   const checkToken =  () => {
     try {
       let token = localStorage.getItem("token");
       if ( token )
@@ -47,9 +47,9 @@ function App() {
   }, []);
   
   //getting all questions of certain survey from db
-  const fetchQuestions = async (survey_name) => {
+  const fetchQuestions = async(survey_name) => {
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/v1/user/get_questions/${survey_name}");
+      const res = await fetch("http://127.0.0.1:8000/api/v1/user/get_questions/"+survey_name);
       const data = await res.json();
       return data;
     } catch (err) {
@@ -64,6 +64,24 @@ function App() {
   //   getQuestions();
   // }, []);
 
+    //adding a survey
+    const login = async (username_pass) => {
+      const res = await fetch("http://127.0.0.1:8000/api/v1/admin/login", {
+        method: "POST",
+     
+        body: username_pass,
+      });
+      const data = await res.json();
+      console.log(data.success);
+      if(data.success === true){
+          localStorage.setItem("token",data.token);
+          alert("Hi Admin !");
+      }else
+          alert("Wrong username or Password !");
+        
+      }
+
+
   //adding a survey
    const addSurvey = async (survey) => {
     const res = await fetch("http://127.0.0.1:8000/api/v1/admin/add_survey", {
@@ -72,7 +90,7 @@ function App() {
         "Content-type": "application/json",
         "Authorization": "Bearer "+localStorage.getItem("token"),
       },
-      body: JSON.stringify(survey),
+      body: survey,
     });
     const data = await res.json();
     setSurveys([...surveys, data]);
@@ -105,7 +123,7 @@ function App() {
   return (
   <> 
     <Nav
-          title = {"Forms"}
+          // title = {"Forms"}
           onCreateSurvey={() => {
             setShowCreateSurvey(!showCreateSurvey);
           }}
@@ -116,19 +134,19 @@ function App() {
           showCreateSurvey={showCreateSurvey}
           // showLogin={showLogin}
         />
-           { <div>{showCreateSurvey && <CreateSurvey onAdd={CreateSurvey} checkToken={checkToken} />}</div> }
+           { <div>{showCreateSurvey && <CreateSurvey login={login} checkToken={checkToken} createSurvey={addSurvey}/>}</div> }
     <div>
       {
         surveys.length > 0 ? (
           <Surveys surveys={surveys} getQuestions={fetchQuestions} />
           ) : (
-            "No surveys to show!"
+            ""
             )
       }
     </div>
   </>
 
   );
-}
+};
 
 export default App;
