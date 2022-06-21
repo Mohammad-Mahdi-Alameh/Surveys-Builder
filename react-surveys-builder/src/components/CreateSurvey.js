@@ -28,7 +28,7 @@ const CreateSurvey = ({ login , checkToken , createSurvey ,setShowCreateSurvey ,
   const onCreateSurvey = (e) => {
     e.preventDefault();
     if ( !name) {
-      alert("Please fill missing fields !");
+      alert("Please add a title !");
       return;
     }
     let survey_data= new FormData();

@@ -10,7 +10,7 @@ import Questions from "./components/Questions";
 function App() {
   const [surveys, setSurveys] = useState([]);
   const [questions, setQuestions] = useState([]);
-  const [surveyQuestions, setSurveyQuestions] = useState([]);
+  // const [surveyQuestions, setSurveyQuestions] = useState([]);
   const [answers, setAnswers] = useState([]);
   const [showCreateSurvey, setShowCreateSurvey] = useState(false);
 
@@ -51,17 +51,17 @@ function App() {
   }, []);
   
   //getting all questions of certain survey from db
-  const fetchQuestions = async(survey_name) => {
-    try {
-      const res = await fetch("http://127.0.0.1:8000/api/v1/user/get_questions/"+survey_name);
-      const data = await res.json();
-      console.log(data);
-      setSurveyQuestions([...surveyQuestions, data])
-      return data;
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // const fetchQuestions = async(survey_name) => {
+  //   try {
+  //     const res = await fetch("http://127.0.0.1:8000/api/v1/user/get_questions/"+survey_name);
+  //     const data = await res.json();
+  //     console.log(data);
+  //     setSurveyQuestions([...surveyQuestions, data])
+  //     return data;
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
   // useEffect(() => {
   //   const getQuestions = async () => {
   //     const serverQuestions = await fetchQuestions();
@@ -161,7 +161,7 @@ function App() {
          {
            
            surveys.length > 0 ? (
-             <Surveys surveys={surveys} getQuestions={fetchQuestions} />
+             <Surveys surveys={surveys}  />
                 ) : (
                   ""
                   )
@@ -177,7 +177,8 @@ function App() {
           <Route
            path="/questions"
            element={
-            <Questions questions={surveyQuestions}/> }
+            <Questions /> }
+            // <Questions questions={surveyQuestions}/> }
 
           ></Route>
 

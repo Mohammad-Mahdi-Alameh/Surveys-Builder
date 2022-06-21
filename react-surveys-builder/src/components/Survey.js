@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-const Survey = ({ survey , getQuestions }) => {
+const Survey = ({ survey}) => {
   let navigate = useNavigate();
   return (
     <div
     className={"survey"}
     onClick={() => {
-      getQuestions(survey.name);
-      navigate("/questions");
+      // getQuestions(survey.name);
+      navigate("/questions?survey_name="+survey.name);
 
 
     }}
