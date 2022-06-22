@@ -18,23 +18,70 @@
 // export default Question;
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Button from "./Button";
+// import Radio from "./Radio";
+import TextForm from "./TextForm";
 const Question = ({ question }) => {
-  return (
-    <div
-    className={"survey"}
-    // onClick={() => {
-    //   // getQuestions(survey.name);
-    //   navigate("/questions?survey_name="+survey.name);
+  // const [types, setTypes] = useState([]);
+
+if (question.type_id === 1){
+  return (<>
+   <h3>
+{question.title}
+<TextForm label={"Answer : "}/>
+</h3>
+  </>)
+}
+if (question.type_id === 2){
+let content = question.content.split(',');
+  return (<>
+   <h3>
+{question.title}
+<TextForm label={"Answer : "}/>
+</h3>
+  </>)
+}
+if (question.type_id === 1){
+  return (<>
+   <h3>
+{question.title}
+<TextForm label={"Answer : "}/>
+</h3>
+  </>)
+}
 
 
-    // }}
-    >
-      <h3>
-        {question.title}{" "}
+  //   return (
+//     <div
+//     className={"survey"}
+//     // onClick={() => {
+//     //   // getQuestions(survey.name);
+//     //   navigate("/questions?survey_name="+survey.name);
+
+
+//     // }}
+//     >
+//       <h3>
+//         {question.title}{" "}
+//         {/* {question.content}{" "} */}
+//        {question.type_id === 1 ?
+//        <> <TextForm label={"Answer : "}/>
+       
+//       </>
+//        :
+//        { question.content}
+//        <>Radio</>
+//        }
+
         
-      </h3>
-    </div>
-  );
-};
+//       </h3>
+      
+
+//     </div>
+    
+//   );
+// };
+
+}
 
 export default Question;

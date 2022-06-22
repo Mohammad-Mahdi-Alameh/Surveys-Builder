@@ -1,4 +1,5 @@
 import Question from "./Question";
+import Button from "./Button";
 import React, { useState, useEffect } from "react";
 
 
@@ -25,11 +26,15 @@ const Questions = ({}) => {
     const getQuestions = async () => {
       const serverQuestions = await fetchQuestions();
       setsurveyQuestions(serverQuestions);
+      // return data;
     };
     getQuestions();
     
-  }, []);
     
+  }, [Questions]);
+    
+
+  if(surveyQuestions.length > 0 ){
     return (
         <>
           {surveyQuestions.map((surveyQuestion) => (
@@ -37,10 +42,14 @@ const Questions = ({}) => {
           key={surveyQuestion.id}
           question={surveyQuestion}
 
+
          
         />
-      ))}
+        
+        ))} <Button text={"Submit"} color={"green"}/>
         </>
-      );
-    };
+        
+        );
+        }}
+        
 export default Questions;
