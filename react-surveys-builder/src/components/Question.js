@@ -53,6 +53,23 @@ if (question.type_id === 1){
   </>)
 }
 
+if (question.type_id === 3){
+let contents = question.content.split(',');
+for(let i=0;i<contents.length;i++){
+  arr.push(  <Input type={'checkbox'} name={question.title} label={contents[i]}/> );
+}
+return (<><h2>{order +" ) "}{question.title }</h2>{arr}</>)
+}
+
+if (question.type_id === 1){
+  return (<>
+   <h3>
+{question.title}
+<Input label={"Answer : "}/>
+</h3>
+  </>)
+}
+
 
   //   return (
 //     <div
