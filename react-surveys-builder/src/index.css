@@ -37,6 +37,7 @@ body {
   color: #fff;
   border: none;
   padding: 10px 20px;
+  /* margin-left: 40 vw; */
   margin-top: 7vh;
   border-radius: 5px;
   cursor: pointer;
@@ -44,6 +45,8 @@ body {
   font-size: 15px;
   font-family: inherit;
 }
+
+
 
 .btn:focus {
   outline: none;
@@ -159,6 +162,13 @@ form {
   font-size: 17px;
 }
 
+select{
+  width: 30%;
+  height: 40px;
+  margin: 10px 0px;
+  padding: 3px 7px;
+  font-size: 17px;
+}
 
 
 .main{

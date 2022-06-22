@@ -64,7 +64,7 @@ return (<><h2>{order +" ) "}{question.title }</h2>{arr}</>)
 if (question.type_id === 4){
 let contents = question.content.split(',');
 return (<><h2>{order +" ) "}{question.title }</h2><Dropdown options={contents}
-question_title={question.title}/></>)
+question_title={question.title}/><br></br></>)
 
 }
 
