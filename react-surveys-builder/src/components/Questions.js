@@ -35,11 +35,13 @@ const Questions = ({}) => {
     
 
   if(surveyQuestions.length > 0 ){
+    var i=0;
     return (
         <>
           {surveyQuestions.map((surveyQuestion) => (
         <Question
           key={surveyQuestion.id}
+          order={i+1}
           question={surveyQuestion}
 
 

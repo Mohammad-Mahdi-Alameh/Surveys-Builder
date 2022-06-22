@@ -21,7 +21,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "./Button";
 import Radio from "./Radio";
 import Input from "./Input";
-const Question = ({ question }) => {
+const Question = ({ question , order}) => {
   const [multiple, setmultiple] = useState([]);
   let string="";
   let arr=[];
@@ -37,20 +37,10 @@ type={"text"}/>
 }
 if (question.type_id === 2){
 let contents = question.content.split(',');
-// const fields = contents.map((content) =>
-//   return (<h3>{question.title} <Input type={'radio'}/><label>{content[i]}</label></h3>);
-// );
-// for(let i=0;i<content.length;i++){
-//   string  = ""+<h3>{question.title} <Input type={'radio'}/><label>{content[i]}</label></h3>;
-//   arr.push(string);
 for(let i=0;i<contents.length;i++){
   arr.push(  <h3> <Input type={'radio'} name={question.title} label={contents[i]}/></h3> );
-
-  
-// }
-// return (<>{arr.every}</>);
 }
-return (<>{question.title}{arr}</>)
+return (<><h2>{order +" ) "}{question.title }</h2>{arr}</>)
 }
 if (question.type_id === 1){
   return (<>
