@@ -19,7 +19,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "./Button";
-import Radio from "./Radio";
+import Dropdown from "./Dropdown";
 import Input from "./Input";
 const Question = ({ question , order}) => {
   const [multiple, setmultiple] = useState([]);
@@ -61,13 +61,11 @@ for(let i=0;i<contents.length;i++){
 return (<><h2>{order +" ) "}{question.title }</h2>{arr}</>)
 }
 
-if (question.type_id === 1){
-  return (<>
-   <h3>
-{question.title}
-<Input label={"Answer : "}/>
-</h3>
-  </>)
+if (question.type_id === 4){
+let contents = question.content.split(',');
+return (<><h2>{order +" ) "}{question.title }</h2><Dropdown options={contents}
+question_title={question.title}/></>)
+
 }
 
 
