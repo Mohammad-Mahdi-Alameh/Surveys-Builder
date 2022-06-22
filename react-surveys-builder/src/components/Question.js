@@ -42,6 +42,7 @@ for(let i=0;i<contents.length;i++){
 }
 return (<><h2>{order +" ) "}{question.title }</h2>{arr}</>)
 }
+
 if (question.type_id === 1){
   return (<>
    <h3>
