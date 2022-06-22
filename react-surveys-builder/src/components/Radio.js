@@ -1,5 +1,5 @@
 import React from "react";
-const TextForm = ({ type,placeholder,value,label}) => {
+const Radio = ({ type,placeholder,value,label}) => {
     
       return (<>
         <label>{label}</label>
@@ -15,4 +15,4 @@ const TextForm = ({ type,placeholder,value,label}) => {
       );
       
     };
-export default TextForm;
+export default Radio;
