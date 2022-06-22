@@ -28,17 +28,18 @@ const Question = ({ question , order}) => {
 
 if (question.type_id === 1){
   return (<>
-   <h3>
-{question.title}
-<Input label={"Answer : "} placeholder={"Enter your answer "}
-type={"text"}/>
-</h3>
+
+   <h2>
+   {order +" ) "}
+  {question.title}
+<Input  placeholder={"Enter your answer "} type={"text"}/>
+</h2>
   </>)  
 }
 if (question.type_id === 2){
 let contents = question.content.split(',');
 for(let i=0;i<contents.length;i++){
-  arr.push(  <h3> <Input type={'radio'} name={question.title} label={contents[i]}/></h3> );
+  arr.push(  <Input type={'radio'} name={question.title} label={contents[i]}/> );
 }
 return (<><h2>{order +" ) "}{question.title }</h2>{arr}</>)
 }

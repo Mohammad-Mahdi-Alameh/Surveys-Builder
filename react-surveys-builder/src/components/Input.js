@@ -1,7 +1,7 @@
 import React from "react";
 const Input = ({ type,placeholder,value,label,name}) => {
-    
-      return (<div className="radio">
+   
+      return (<div className={type}>
         <input
         type={type}
         placeholder={placeholder}

@@ -88,33 +88,43 @@ form {
   margin: 20px 0;
 }
 
-label {
+.radio > label {
   display: flex;
   justify-content: end;
-  font-weight: bold;
+  font-size: 17px;
+  font-weight:600;
   margin-top: 2vh;
   /* margin-left: 20vw; */
   padding: 3px 7px;
 }
 
-input , select {
+.radio > input{
   display: flex;
   justify-content: start;
   width: 7%;
-  height:25px;
+  height:22px;
   margin-top: 2vh;
   /* margin-left: 20vw; */
   padding: 3px 7px;
-  font-size: 17px;
 }
 .radio{
-  /* width: 40%; */
+  width: 40%;
   display: flex;
   align-items: center;
   /* margin: auto; */
   /* justify-content: center; */
   
 }
+
+.text > input {
+  width: 50%;
+  height: 40px;
+  margin: 10px 0px;
+  padding: 3px 7px;
+  font-size: 17px;
+}
+
+
 
 .main{
   display: flex;

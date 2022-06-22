@@ -35,18 +35,19 @@ const Questions = ({}) => {
     
 
   if(surveyQuestions.length > 0 ){
-    var i=0;
+    var i=1;
     return (
         <>
           {surveyQuestions.map((surveyQuestion) => (
         <Question
           key={surveyQuestion.id}
-          order={i+1}
+          order={i++}
           question={surveyQuestion}
 
 
          
         />
+        
         
         ))} <Button text={"Submit"} color={"green"}/>
         </>
