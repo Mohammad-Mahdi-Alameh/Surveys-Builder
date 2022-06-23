@@ -11,7 +11,7 @@ body {
 }
 
 .container {
-  width: 90%;
+  width: 90vw;
   margin: 30px auto;
   overflow: auto;
   min-height: 300px;
@@ -28,7 +28,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10vh;
+  margin-bottom: 1vh;
 }
 
 .btn {
@@ -37,8 +37,8 @@ body {
   color: #fff;
   border: none;
   padding: 10px 20px;
-  /* margin-left: 40 vw; */
-  margin-top: 7vh;
+  /* margin-left: 45vh; */
+  margin: 3vh;
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
@@ -88,11 +88,48 @@ h2{
 form {
   margin: auto;
   margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
 }
 
 .form-control {
   margin: auto;
   margin: 20px 0;
+}
+
+.add-form {
+  margin-bottom: 40px;
+}
+
+.form-control {
+  margin: 20px 0;
+}
+.form-control label {
+  display: block;
+  margin: 2vh 0vh;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.form-control input {
+  width: 45vw;
+  height: 40px;
+  /* margin: 5px; */
+  padding: 3px 7px;
+  font-size: 17px;
+}
+
+
+.form-control-check label {
+  flex: 1;
+}
+
+.form-control-check input {
+  flex: 2;
+  height: 20px;
 }
 
 .radio > label {
