@@ -124,7 +124,7 @@ function App() {
     const data = await res.json();
     setQuestions([...questions, data]);
   };
-  //submitting an answer
+   //submitting an answer
    const addAnswer = async (answer) => {
     const res = await fetch("http://127.0.0.1:8000/api/v1/admin/submit_answers", {
       method: "POST",
@@ -135,7 +135,7 @@ function App() {
     });
     const data = await res.json();
     setAnswers([...answers, data]);
-  };
+  }; 
   return (
     <BrowserRouter> 
       <div className="container">
